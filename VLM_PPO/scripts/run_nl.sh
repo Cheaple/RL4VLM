@@ -1,4 +1,4 @@
-TOKENIZERS_PARALLELISM=false CUDA_VISIBLE_DEVICES="0,1" accelerate launch --config_file config_zero2.yaml --main_process_port 29488 ../main.py \
+TOKENIZERS_PARALLELISM=false CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" accelerate launch --config_file  ~/yule-tx/RL4VLM/VLM_PPO/scripts/config_zero2.yaml --main_process_port 29488 ~/yule-tx/RL4VLM/VLM_PPO/main.py \
     --env-name gym_cards/NumberLine-v0 \
     --init-lr 1e-5 \
     --end-lr 1e-9 \
@@ -13,11 +13,11 @@ TOKENIZERS_PARALLELISM=false CUDA_VISIBLE_DEVICES="0,1" accelerate launch --conf
     --seed 1 \
     --temperature 0.2 \
     --ppo-epoch 4 \
-    --mini-batch-size 1 \
-    --model-path /your_sft_checkpoint_for_numberline \
+    --mini-batch-size 4 \
+    --model-path ~/yule-tx/models/llava-v1.6-mistral-7b-nl-sft \
     --use-lora \
     --train-vision all \
-    # --wandb-project you_wandb_proj \
-    # --wandb-run you_wandb_run \
-    # --use-wandb \
-    # --q4
+    --wandb-project RL4VLM \
+    --wandb-run NL-1 \
+    --use-wandb \
+    --q4

@@ -1,7 +1,7 @@
 export ALFWORLD_DATA=~/alfworld-storage
-TOKENIZERS_PARALLELISM=false CUDA_VISIBLE_DEVICES="0" accelerate launch --config_file config_zero2.yaml --main_process_port 29330 ../main_alf.py \
+TOKENIZERS_PARALLELISM=false CUDA_VISIBLE_DEVICES="0" accelerate launch --config_file ~/yule-tx/RL4VLM/VLM_PPO_ALF/scripts/config_zero2.yaml --main_process_port 29330 ~/yule-tx/RL4VLM/VLM_PPO_ALF/main_alf.py \
     --env-name "AlfredThorEnv" \
-    --alf_config ../alf-config.yaml \
+    --alf_config ~/yule-tx/RL4VLM/VLM_PPO_ALF/alf-config.yaml \
     --init-lr 1e-5 \
     --end-lr 1e-9 \
     --lr_max_steps 25 \
